@@ -1,6 +1,15 @@
-﻿namespace App.DAL.EF;
+﻿using Domain.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
-public class AppDbContext
+namespace App.DAL.EF;
+
+public class AppDbContext : IdentityDbContext<AppUser, AppRole, Guid>
 {
-    
+
+    public AppDbContext(DbContextOptions<AppDbContext> options)
+        : base(options)
+    {
+        
+    }
 }
